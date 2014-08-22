@@ -1,0 +1,363 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+
+    <meta http-equiv="content-language" content="en" />
+    <link href="http://nerdpress.org/wp-content/themes/nerdpress/style.css" rel="stylesheet" type="text/css" />
+    <link rel="pingback" href="http://nerdpress.org/xmlrpc.php" />
+
+    <!-- This site is optimized with the Yoast WordPress SEO plugin v1.5.5.3 - https://yoast.com/wordpress/plugins/seo/ -->
+    <title>Silverstripe Profilable module - Nerdpress.org</title>
+    <link rel="canonical" href="http://nerdpress.org/2012/05/03/silverstripe-profilable-module/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Silverstripe Profilable module - Nerdpress.org" />
+    <meta property="og:description" content="This is a reoccuring requirement: you need a profile for some object in your project. FE you have a company, a member or a location that should get an address, a marker on the map, an icon, homepage etc. So I created a small silverstripe module that adds a profile tab to any object you [...]" />
+    <meta property="og:url" content="http://nerdpress.org/2012/05/03/silverstripe-profilable-module/" />
+    <meta property="og:site_name" content="Nerdpress.org" />
+    <meta property="article:tag" content="Silverstripe" />
+    <meta property="article:section" content="CMS" />
+    <meta property="article:section" content="Silverstripe" />
+    <meta property="article:section" content="Uncategorized" />
+    <meta property="article:published_time" content="2012-05-03T17:03:19+00:00" />
+    <meta property="og:image" content="http://nerdpress.org/wp-content/uploads/2012/05/silverstripe-profilable-300x129.png" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@nerdpress_org"/>
+    <meta name="twitter:domain" content="Nerdpress.org"/>
+    <meta name="twitter:creator" content="@nerdpress_org"/>
+    <!-- / Yoast WordPress SEO plugin. -->
+
+    <link rel="alternate" type="application/rss+xml" title="Nerdpress.org &raquo; Silverstripe Profilable module Comments Feed" href="http://nerdpress.org/2012/05/03/silverstripe-profilable-module/feed/" />
+    <link rel='stylesheet' id='jquery.slimbox-css'  href='http://nerdpress.org/wp-content/plugins/slimbox/stylesheets/jquery.slimbox.css?ver=2.03' type='text/css' media='all' />
+    <link rel='stylesheet' id='digg-digg-css'  href='http://nerdpress.org/wp-content/plugins/digg-digg/css/diggdigg-style.css?ver=5.3.6' type='text/css' media='screen' />
+    <script type='text/javascript' src='http://nerdpress.org/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+    <script type='text/javascript' src='http://nerdpress.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+    <script type='text/javascript' src='http://nerdpress.org/wp-content/plugins/slimbox/javascript/jquery.slimbox.js?ver=2.03'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var DavesWordPressLiveSearchConfig = {"resultsDirection":"down","showThumbs":"false","showExcerpt":"false","showMoreResultsLink":"true","minCharsToSearch":"2","xOffset":"0","yOffset":"0","blogURL":"http:\/\/nerdpress.org","ajaxURL":"http:\/\/nerdpress.org\/wp-admin\/admin-ajax.php","viewMoreText":"View more results","outdatedJQuery":"Dave's WordPress Live Search requires jQuery 1.2.6 or higher. WordPress ships with current jQuery versions. But if you are seeing this message, it's likely that another plugin is including an earlier version.","resultTemplate":"<ul id=\"dwls_search_results\" class=\"search_results dwls_search_results\">\n<input type=\"hidden\" name=\"query\" value=\"<%= resultsSearchTerm %>\" \/>\n<% _.each(searchResults, function(searchResult, index, list) { %>\n        <%\n        \/\/ Thumbnails\n        if(DavesWordPressLiveSearchConfig.showThumbs == \"true\" && searchResult.attachment_thumbnail) {\n                liClass = \"post_with_thumb\";\n        }\n        else {\n                liClass = \"\";\n        }\n        %>\n        <li class=\"daves-wordpress-live-search_result <%= liClass %> '\">\n        <% if(DavesWordPressLiveSearchConfig.showThumbs == \"true\" && searchResult.attachment_thumbnail) { %>\n                <img src=\"<%= searchResult.attachment_thumbnail %>\" class=\"post_thumb\" \/>\n        <% } %>\n\n        <a href=\"<%= searchResult.permalink %>\" class=\"daves-wordpress-live-search_title\"><%= searchResult.post_title %><\/a>\n\n        <% if(searchResult.post_price !== undefined) { %>\n                <p class=\"price\"><%= searchResult.post_price %><\/p>\n        <% } %>\n\n        <% if(DavesWordPressLiveSearchConfig.showExcerpt == \"true\" && searchResult.post_excerpt) { %>\n                <p class=\"excerpt clearfix\"><%= searchResult.post_excerpt %><\/p>\n        <% } %>\n\n        <% if(e.displayPostMeta) { %>\n                <p class=\"meta clearfix daves-wordpress-live-search_author\" id=\"daves-wordpress-live-search_author\">Posted by <%= searchResult.post_author_nicename %><\/p><p id=\"daves-wordpress-live-search_date\" class=\"meta clearfix daves-wordpress-live-search_date\"><%= searchResult.post_date %><\/p>\n        <% } %>\n        <div class=\"clearfix\"><\/div><\/li>\n<% }); %>\n\n<% if(searchResults[0].show_more !== undefined && searchResults[0].show_more && DavesWordPressLiveSearchConfig.showMoreResultsLink == \"true\") { %>\n        <div class=\"clearfix search_footer\"><a href=\"<%= DavesWordPressLiveSearchConfig.blogURL %>\/?s=<%=  resultsSearchTerm %>\"><%= DavesWordPressLiveSearchConfig.viewMoreText %><\/a><\/div>\n<% } %>\n\n<\/ul>"};
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='http://nerdpress.org/wp-content/plugins/daves-wordpress-live-search/js/daves-wordpress-live-search.min.js?ver=3.9.2'></script>
+    <script type='text/javascript' src='http://nerdpress.org/wp-content/plugins/daves-wordpress-live-search/js/excanvas.compiled.js?ver=3.9.2'></script>
+    <script type='text/javascript' src='http://nerdpress.org/wp-content/plugins/daves-wordpress-live-search/js/spinners.min.js?ver=3.9.2'></script>
+    <meta name="generator" content="WordPress 3.9.2" />
+    <link rel="image_src" href="http://nerdpress.org/wp-content/uploads/2012/05/silverstripe-profilable-300x129.png" /><script type="text/javascript">
+    jQuery(document).ready(function($){
+        var select = $('a[href$=".bmp"],a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"], a[href$=".png"],a[href$=".BMP"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]');
+        select.slimbox();
+    });
+</script>
+    <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+    <link rel='stylesheet' id='daves-wordpress-live-search-css'  href='http://nerdpress.org/wp-content/themes/nerdpress/daves-wordpress-live-search.css?ver=3.9.2' type='text/css' media='all' />
+    <style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+<body>
+
+<div class="wrap">
+<a href="http://greensta.de" target="_blank" class="sponsor">
+    <img src="http://nerdpress.org/wp-content/themes/nerdpress/images/sponsor.png" alt="Klimafreundliches Webhosting - Webserver mit garantiert 100% Ökostrom - GREENSTA Öko Webhosting" />
+</a>
+
+<a href="http://nerdpress.org/feed/" class="rss"><img src="http://nerdpress.org/wp-content/themes/nerdpress/images/icon_rss.png" alt="RSS Feed" /></a>
+
+<div class="header">
+    <span class="date">^__^</span>
+    <div class="headline">
+        <h1>
+            <a href="http://nerdpress.org">Nerdpress.org</a>
+        </h1>
+    </div>
+    <form method="get" id="searchform" action="http://nerdpress.org/">
+        <input type="text" class="field" name="s" id="s" placeholder="Search" />
+        <input type="submit" class="submit" id="searchsubmit" value=" " />
+    </form>
+
+    <div class="menu-main-container"><ul id="menu-main" class="menu"><li id="menu-item-1604" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1604"><a href="http://nerdpress.org/">Home</a></li>
+        <li id="menu-item-1605" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1605"><a href="http://nerdpress.org/authors/">Authors</a></li>
+        <li id="menu-item-1606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1606"><a href="http://nerdpress.org/contact/">Contact</a></li>
+    </ul></div>      </div>
+
+<div class="main">
+    <div class="col-main" itemscope itemtype="http://schema.org/Blog">
+
+        <meta itemprop="name" content="Nerdpress.org">
+        <meta itemprop="description" content="^__^">
+        <meta itemprop="url" content="http://nerdpress.org">
+
+
+        <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+            <div class="dim"></div>
+            <h2 itemprop="headline">
+                <a href="http://nerdpress.org/2012/05/03/silverstripe-profilable-module/">Silverstripe Profilable module</a>
+            </h2>
+
+
+            <div class="meta">
+                <span class="date"><span itemprop="author">Ivo Bathke</span>, <span itemprop="datePublished">2012/05/03 17:03</span></span>
+                <span class="clear"></span>
+            </div>
+
+            <meta itemprop="url" content="http://nerdpress.org/2012/05/03/silverstripe-profilable-module/">
+
+
+
+            <div class="content">
+                <p>This is a reoccuring requirement: you need a profile for some object in your project.<br />
+                    FE you have a company, a member or a location that should get an address, a marker on the map, an icon, homepage etc.</p>
+                <p>So I created a small <a href="https://github.com/ivoba/silverstripe-profileable" title="silverstripe-profileable">silverstripe module that adds a profile tab</a> to any object you choose in your Silverstripe CMS backend.</p>
+                <p><a href="http://nerdpress.org/wp-content/uploads/2012/05/silverstripe-profilable.png" rel="lightbox[post-2172]"><img src="http://nerdpress.org/wp-content/uploads/2012/05/silverstripe-profilable-300x129.png" alt="" title="silverstripe-profilable" width="300" height="129" class="alignnone size-medium wp-image-2174" /></a><br />
+                    <span id="more-2172"></span><br />
+                    It basically extends the very handy <a href="https://github.com/ajshort/silverstripe-addressable" title="silverstripe-addressable">addressable module</a> and inherits all functionality from it like automatic geocoding, regex field to validate postcodes, set allowed countries and rendering of a static google map.<br />
+                    If you just need an Address I recommend to use the addressable module.</p>
+                <p>Install it easy by:<br />
+                    Simply extend your Object in your _config.php:</p>
+                <pre class="brush: php; title: ; notranslate" title="">Object::add_extension('myObject', 'Profileable');</pre>
+                <p>To add the automatic geocoding add:</p>
+                <pre class="brush: php; title: ; notranslate" title="">Object::add_extension('myObject', 'Geocodable');</pre>
+                <p>and of course run: <em>dev/build?flush=all</em></p>
+                <p>It also renders the profile in semantic hContact mircroformat markup, just place <em>$getFullProfileHTML</em> in your template and style it.<br />
+                    If you want to render the Profile different just copy the <em>Profile.ss</em> over to your theme and start editing.</p>
+                <p>Read more in the readme&#8217;s :)</p>
+                <div class='dd_post_share'><div class='dd_buttons'><div class='dd_button'><div class='dd-twitter-ajax-load dd-twitter-2172'></div><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://nerdpress.org/2012/05/03/silverstripe-profilable-module/" data-count="vertical" data-text="Silverstripe Profilable module" data-via="nerdpress_org" ></a></div><div class='dd_button'><div class='dd-fblike-ajax-load dd-fblike-2172'></div><iframe class="DD_FBLIKE_AJAX_2172" src='' height='0' width='0' scrolling='no' frameborder='0' allowtransparency='true'></iframe></div><div class='dd_button'><div class='dd-google1-ajax-load dd-google1-2172'></div><g:plusone size='tall' href='http://nerdpress.org/2012/05/03/silverstripe-profilable-module/'></g:plusone></div></div><div style='clear:both'></div></div><script type="text/javascript"> jQuery(document).ready(function($) { window.setTimeout('loadTwitter_2172()',1000);window.setTimeout('loadFBLike_2172()',1000);window.setTimeout('loadGoogle1_2172()',1000); }); </script><script type="text/javascript"> function loadTwitter_2172(){ jQuery(document).ready(function($) { $('.dd-twitter-2172').remove();$.getScript('http://platform.twitter.com/widgets.js'); }); } function loadFBLike_2172(){ jQuery(document).ready(function($) { $('.dd-fblike-2172').remove();$('.DD_FBLIKE_AJAX_2172').attr('width','50');$('.DD_FBLIKE_AJAX_2172').attr('height','62');$('.DD_FBLIKE_AJAX_2172').attr('src','http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fnerdpress.org%2F2012%2F05%2F03%2Fsilverstripe-profilable-module%2F&locale=en_US&layout=box_count&action=like&width=50&height=60&colorscheme=light'); }); } function loadGoogle1_2172(){ jQuery(document).ready(function($) { $('.dd-google1-2172').remove();$.getScript('https://apis.google.com/js/plusone.js'); }); }</script><!-- Social Buttons Generated by Digg Digg plugin v5.3.6,
+    Author : Buffer, Inc
+    Website : http://bufferapp.com/diggdigg -->                                    </div>
+
+
+            <!-- You can start editing here. -->
+
+
+            <!-- If comments are open, but there are no comments. -->
+
+
+
+            <div id="respond">
+
+                <h3>Leave a Reply</h3>
+
+                <div id="cancel-comment-reply">
+                    <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2012/05/03/silverstripe-profilable-module/#respond" style="display:none;">Click here to cancel reply.</a></small>
+                </div>
+
+
+                <form action="http://nerdpress.org/wp-comments-post.php" method="post" id="commentform">
+
+
+                    <p><input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required='true' />
+                        <label for="author"><small>Name (required)</small></label></p>
+
+                    <p><input type="text" name="email" id="email" value="" size="22" tabindex="2" aria-required='true' />
+                        <label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+                    <p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+                        <label for="url"><small>Website</small></label></p>
+
+
+                    <!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+                    <p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="4"></textarea></p>
+
+                    <p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+                        <input type='hidden' name='comment_post_ID' value='2172' id='comment_post_ID' />
+                        <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+                    </p>
+                    <p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="6ff9664f08" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="42"/></p>
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+</div>
+
+<div class="footer">
+    <ul class="sidebar sidebar-1">
+        <li id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widgettitle">Recent Comments</h2>
+            <ul id="recentcomments"><li class="recentcomments">IHeartMoon on <a href="http://nerdpress.org/2012/04/19/how-to-add-placeholder-attributes-in-silverstripe-userforms-module/#comment-79255">how to add placeholder attributes in Silverstripe Userforms Module</a></li><li class="recentcomments">IHeartMoon on <a href="http://nerdpress.org/2012/04/19/how-to-add-placeholder-attributes-in-silverstripe-userforms-module/#comment-75190">how to add placeholder attributes in Silverstripe Userforms Module</a></li><li class="recentcomments">Cole on <a href="http://nerdpress.org/2012/04/20/hosting-multiple-express-node-js-apps-on-port-80/#comment-75181">Hosting multiple Express (node.js) apps on port 80</a></li><li class="recentcomments">Tex on <a href="http://nerdpress.org/2012/10/26/symfony-2assetic-sass-compassfilter-foundation-responsive-front-end-framework/#comment-62075">[Symfony 2][Assetic] Sass, CompassFilter + Foundation Responsive Front-end Framework</a></li><li class="recentcomments">Kevin Freund on <a href="http://nerdpress.org/2012/04/20/hosting-multiple-express-node-js-apps-on-port-80/#comment-47615">Hosting multiple Express (node.js) apps on port 80</a></li></ul></li>
+        <li id="tag_cloud-2" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2>
+            <div class="tagcloud"><a href='http://nerdpress.org/tag/ajax/' class='tag-link-38' title='7 topics' style='font-size: 12.941176470588pt;'>Ajax</a>
+                <a href='http://nerdpress.org/tag/ant/' class='tag-link-42' title='5 topics' style='font-size: 10.964705882353pt;'>Ant</a>
+                <a href='http://nerdpress.org/tag/api/' class='tag-link-4' title='5 topics' style='font-size: 10.964705882353pt;'>API</a>
+                <a href='http://nerdpress.org/tag/bookmarklet/' class='tag-link-55' title='3 topics' style='font-size: 8pt;'>bookmarklet</a>
+                <a href='http://nerdpress.org/tag/css/' class='tag-link-6' title='9 topics' style='font-size: 14.588235294118pt;'>CSS</a>
+                <a href='http://nerdpress.org/tag/debian/' class='tag-link-87' title='3 topics' style='font-size: 8pt;'>Debian</a>
+                <a href='http://nerdpress.org/tag/dependency-injection/' class='tag-link-89' title='5 topics' style='font-size: 10.964705882353pt;'>Dependency Injection</a>
+                <a href='http://nerdpress.org/tag/deployment/' class='tag-link-8' title='4 topics' style='font-size: 9.6470588235294pt;'>Deployment</a>
+                <a href='http://nerdpress.org/tag/development/' class='tag-link-93' title='3 topics' style='font-size: 8pt;'>Development</a>
+                <a href='http://nerdpress.org/tag/dic/' class='tag-link-94' title='3 topics' style='font-size: 8pt;'>DIC</a>
+                <a href='http://nerdpress.org/tag/doctrine/' class='tag-link-96' title='7 topics' style='font-size: 12.941176470588pt;'>Doctrine</a>
+                <a href='http://nerdpress.org/tag/doctrine-2/' class='tag-link-98' title='4 topics' style='font-size: 9.6470588235294pt;'>Doctrine 2</a>
+                <a href='http://nerdpress.org/tag/eclipse/' class='tag-link-105' title='6 topics' style='font-size: 12.117647058824pt;'>eclipse</a>
+                <a href='http://nerdpress.org/tag/editor/' class='tag-link-106' title='3 topics' style='font-size: 8pt;'>editor</a>
+                <a href='http://nerdpress.org/tag/firebug/' class='tag-link-117' title='4 topics' style='font-size: 9.6470588235294pt;'>Firebug</a>
+                <a href='http://nerdpress.org/tag/firefox/' class='tag-link-118' title='5 topics' style='font-size: 10.964705882353pt;'>Firefox</a>
+                <a href='http://nerdpress.org/tag/frontend/' class='tag-link-126' title='3 topics' style='font-size: 8pt;'>Frontend</a>
+                <a href='http://nerdpress.org/tag/gfx/' class='tag-link-133' title='3 topics' style='font-size: 8pt;'>Gfx</a>
+                <a href='http://nerdpress.org/tag/git/' class='tag-link-134' title='7 topics' style='font-size: 12.941176470588pt;'>Git</a>
+                <a href='http://nerdpress.org/tag/google/' class='tag-link-136' title='3 topics' style='font-size: 8pt;'>google</a>
+                <a href='http://nerdpress.org/tag/html/' class='tag-link-143' title='4 topics' style='font-size: 9.6470588235294pt;'>HTML</a>
+                <a href='http://nerdpress.org/tag/html5/' class='tag-link-144' title='3 topics' style='font-size: 8pt;'>Html5</a>
+                <a href='http://nerdpress.org/tag/ioc/' class='tag-link-154' title='3 topics' style='font-size: 8pt;'>IoC</a>
+                <a href='http://nerdpress.org/tag/javascript/' class='tag-link-155' title='23 topics' style='font-size: 20.847058823529pt;'>Javascript</a>
+                <a href='http://nerdpress.org/tag/jquery/' class='tag-link-156' title='10 topics' style='font-size: 15.247058823529pt;'>jQuery</a>
+                <a href='http://nerdpress.org/tag/json/' class='tag-link-157' title='3 topics' style='font-size: 8pt;'>JSON</a>
+                <a href='http://nerdpress.org/tag/links-2/' class='tag-link-167' title='4 topics' style='font-size: 9.6470588235294pt;'>links</a>
+                <a href='http://nerdpress.org/tag/mongodb/' class='tag-link-176' title='4 topics' style='font-size: 9.6470588235294pt;'>mongodb</a>
+                <a href='http://nerdpress.org/tag/node-js/' class='tag-link-13' title='4 topics' style='font-size: 9.6470588235294pt;'>node.js</a>
+                <a href='http://nerdpress.org/tag/orm/' class='tag-link-191' title='3 topics' style='font-size: 8pt;'>ORM</a>
+                <a href='http://nerdpress.org/tag/pdt/' class='tag-link-194' title='4 topics' style='font-size: 9.6470588235294pt;'>PDT</a>
+                <a href='http://nerdpress.org/tag/php/' class='tag-link-14' title='22 topics' style='font-size: 20.517647058824pt;'>PHP</a>
+                <a href='http://nerdpress.org/tag/php5/' class='tag-link-198' title='4 topics' style='font-size: 9.6470588235294pt;'>php5</a>
+                <a href='http://nerdpress.org/tag/plugin/' class='tag-link-202' title='6 topics' style='font-size: 12.117647058824pt;'>Plugin</a>
+                <a href='http://nerdpress.org/tag/plugins/' class='tag-link-203' title='4 topics' style='font-size: 9.6470588235294pt;'>plugins</a>
+                <a href='http://nerdpress.org/tag/propel/' class='tag-link-207' title='4 topics' style='font-size: 9.6470588235294pt;'>propel</a>
+                <a href='http://nerdpress.org/tag/shell/' class='tag-link-237' title='4 topics' style='font-size: 9.6470588235294pt;'>Shell</a>
+                <a href='http://nerdpress.org/tag/silverstripe/' class='tag-link-17' title='21 topics' style='font-size: 20.188235294118pt;'>Silverstripe</a>
+                <a href='http://nerdpress.org/tag/symfony-framework/' class='tag-link-20' title='27 topics' style='font-size: 22pt;'>Symfony</a>
+                <a href='http://nerdpress.org/tag/symfony-2/' class='tag-link-259' title='13 topics' style='font-size: 17.058823529412pt;'>symfony 2</a>
+                <a href='http://nerdpress.org/tag/tools/' class='tag-link-275' title='5 topics' style='font-size: 10.964705882353pt;'>tools</a>
+                <a href='http://nerdpress.org/tag/twig/' class='tag-link-280' title='5 topics' style='font-size: 10.964705882353pt;'>Twig</a>
+                <a href='http://nerdpress.org/tag/ubuntu/' class='tag-link-282' title='7 topics' style='font-size: 12.941176470588pt;'>ubuntu</a>
+                <a href='http://nerdpress.org/tag/vserver/' class='tag-link-22' title='5 topics' style='font-size: 10.964705882353pt;'>vServer</a>
+                <a href='http://nerdpress.org/tag/wordpress/' class='tag-link-23' title='5 topics' style='font-size: 10.964705882353pt;'>Wordpress</a></div>
+        </li>
+        <li id="text-3" class="widget widget_text"><h2 class="widgettitle">Twitter</h2>
+            <div class="textwidget"><iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=nerdpress_org&link_color=4796B9&text_color=FFFFFF" style="width:300px; height:20px;"></iframe></div>
+        </li>
+    </ul>
+    <ul class="sidebar sidebar-2">
+        <li id="categories-2" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+            <ul>
+                <li class="cat-item cat-item-3"><a href="http://nerdpress.org/category/admin/" title="View all posts filed under Admin">Admin</a>
+                    <ul class='children'>
+                        <li class="cat-item cat-item-22"><a href="http://nerdpress.org/category/admin/vserver/" title="View all posts filed under vServer">vServer</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cat-item cat-item-4"><a href="http://nerdpress.org/category/api/" title="View all posts filed under API">API</a>
+                </li>
+                <li class="cat-item cat-item-5"><a href="http://nerdpress.org/category/content-management/" title="View all posts filed under CMS">CMS</a>
+                    <ul class='children'>
+                        <li class="cat-item cat-item-17"><a href="http://nerdpress.org/category/content-management/silverstripe/" title="Beiträge zum Silverstripe CMS">Silverstripe</a>
+                        </li>
+                        <li class="cat-item cat-item-23"><a href="http://nerdpress.org/category/content-management/wordpress/" title="View all posts filed under Wordpress">Wordpress</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cat-item cat-item-7"><a href="http://nerdpress.org/category/db/" title="View all posts filed under DB">DB</a>
+                    <ul class='children'>
+                        <li class="cat-item cat-item-11"><a href="http://nerdpress.org/category/db/mongodb-db/" title="View all posts filed under MongoDB">MongoDB</a>
+                        </li>
+                        <li class="cat-item cat-item-12"><a href="http://nerdpress.org/category/db/mysql/" title="View all posts filed under MySQL">MySQL</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cat-item cat-item-333"><a href="http://nerdpress.org/category/ecommerce/" title="View all posts filed under eCommerce">eCommerce</a>
+                    <ul class='children'>
+                        <li class="cat-item cat-item-334"><a href="http://nerdpress.org/category/ecommerce/magento/" title="View all posts filed under magento">magento</a>
+                        </li>
+                        <li class="cat-item cat-item-336"><a href="http://nerdpress.org/category/ecommerce/oxid/" title="View all posts filed under OXID">OXID</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cat-item cat-item-337"><a href="http://nerdpress.org/category/frontend-engineering/" title="View all posts filed under Frontend">Frontend</a>
+                    <ul class='children'>
+                        <li class="cat-item cat-item-6"><a href="http://nerdpress.org/category/frontend-engineering/css/" title="View all posts filed under CSS">CSS</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cat-item cat-item-10"><a href="http://nerdpress.org/category/js/" title="View all posts filed under JS">JS</a>
+                    <ul class='children'>
+                        <li class="cat-item cat-item-25"><a href="http://nerdpress.org/category/js/ajax-js/" title="View all posts filed under AJAX">AJAX</a>
+                        </li>
+                        <li class="cat-item cat-item-27"><a href="http://nerdpress.org/category/js/dojo-toolkit/" title="View all posts filed under Dojo Toolkit">Dojo Toolkit</a>
+                        </li>
+                        <li class="cat-item cat-item-29"><a href="http://nerdpress.org/category/js/jquery-js/" title="View all posts filed under jQuery">jQuery</a>
+                        </li>
+                        <li class="cat-item cat-item-13"><a href="http://nerdpress.org/category/js/node-js/" title="View all posts filed under node.js">node.js</a>
+                            <ul class='children'>
+                                <li class="cat-item cat-item-376"><a href="http://nerdpress.org/category/js/node-js/express/" title="View all posts filed under Express">Express</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="cat-item cat-item-362"><a href="http://nerdpress.org/category/js/socket-io/" title="View all posts filed under socket.io">socket.io</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cat-item cat-item-14"><a href="http://nerdpress.org/category/php/" title="View all posts filed under PHP">PHP</a>
+                    <ul class='children'>
+                        <li class="cat-item cat-item-26"><a href="http://nerdpress.org/category/php/doctrine-orm/" title="View all posts filed under Doctrine ORM">Doctrine ORM</a>
+                        </li>
+                        <li class="cat-item cat-item-352"><a href="http://nerdpress.org/category/php/silex/" title="View all posts filed under Silex">Silex</a>
+                        </li>
+                        <li class="cat-item cat-item-20"><a href="http://nerdpress.org/category/php/symfony-framework/" title="View all posts filed under Symfony">Symfony</a>
+                        </li>
+                        <li class="cat-item cat-item-280"><a href="http://nerdpress.org/category/php/twig/" title="View all posts filed under Twig">Twig</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cat-item cat-item-15"><a href="http://nerdpress.org/category/project-setup/" title="View all posts filed under Project Setup">Project Setup</a>
+                    <ul class='children'>
+                        <li class="cat-item cat-item-8"><a href="http://nerdpress.org/category/project-setup/deployment/" title="View all posts filed under Deployment">Deployment</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cat-item cat-item-18"><a href="http://nerdpress.org/category/swe/" title="View all posts filed under Software engineering">Software engineering</a>
+                </li>
+                <li class="cat-item cat-item-21"><a href="http://nerdpress.org/category/tools-2/" title="View all posts filed under Tools">Tools</a>
+                    <ul class='children'>
+                        <li class="cat-item cat-item-9"><a href="http://nerdpress.org/category/tools-2/ide/" title="View all posts filed under IDE">IDE</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cat-item cat-item-1"><a href="http://nerdpress.org/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="sidebar sidebar-3">
+        <li id="linkcat-328" class="widget widget_links"><h2 class="widgettitle">Imprint</h2>
+
+            <ul class='xoxo blogroll'>
+                <li><a href="http://nerdpress.org/impressum/">Impressum</a></li>
+
+            </ul>
+        </li>
+
+        <li id="linkcat-326" class="widget widget_links"><h2 class="widgettitle">Network</h2>
+
+            <ul class='xoxo blogroll'>
+                <li><a href="http://feednapi.net" title="Ivo Bathke Web Developer">feednapi.net</a></li>
+                <li><a href="http://web-development.cc">web-development.cc</a></li>
+                <li><a href="http://wonderfulwebsolutions.net/">wonderfulwebsolutions.net</a></li>
+
+            </ul>
+        </li>
+
+        <li id="linkcat-329" class="widget widget_links"><h2 class="widgettitle">Projects</h2>
+
+            <ul class='xoxo blogroll'>
+                <li><a href="https://github.com/gherkins/mashcloud" title="mashcloud.net &#8211; free collaborative, loop-based audio editing and music creation online-tool.">mashcloud.net</a></li>
+                <li><a href="http://obsvr.net">obsvr.net</a></li>
+                <li><a href="http://typo.obsvr.net" title="the typography nerd start" target="_blank">typography obsvr</a></li>
+
+            </ul>
+        </li>
+
+    </ul>
+    <div class="clear"></div>
+</div>
+</div>
+
+</body>
+</html>
