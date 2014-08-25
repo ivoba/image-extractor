@@ -1,5 +1,8 @@
 # Image Extractor
 
+[![Build Status](https://secure.travis-ci.org/ivoba/image-extractor.png?branch=master)](http://travis-ci.org/ivoba/image-extractor)
+[![Total Downloads](https://poser.pugx.org/ivoba/image-extractor/downloads.png)](https://packagist.org/packages/ivoba/image-extractor)
+
 Extensible Image Extractor to find all Image tags in a string.
 The library uses the symfony DomCrawler as base of extraction.
 
