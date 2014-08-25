@@ -1,6 +1,6 @@
 <?php
 
-namespace Ivoba\ImageParser\Entity;
+namespace Ivoba\ImageExtractor\Entity;
 
 class Image {
 

@@ -1,13 +1,12 @@
 <?php
 
-namespace Ivoba\ImageParser\Parser;
+namespace Ivoba\ImageExtractor\Extractor;
 
-
-use Ivoba\ImageParser\Entity\Image;
-use Ivoba\ImageParser\ParserInterface;
+use Ivoba\ImageExtractor\Entity\Image;
+use Ivoba\ImageExtractor\ExtractorInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
-class DomCrawlerParser implements ParserInterface
+class ImageXPathExtractor implements ExtractorInterface
 {
     private $xpath;
 
@@ -16,13 +15,9 @@ class DomCrawlerParser implements ParserInterface
         $this->xpath = $xpath;
     }
 
-    public function parse($str)
+    public function extract(Crawler $crawler)
     {
         $images = [];
-        $crawler = new Crawler();
-
-        $str = html_entity_decode($str);
-        $crawler->addContent($str);
 
         $tags = $crawler->filterXPath($this->xpath);
         foreach ($tags as $img) {

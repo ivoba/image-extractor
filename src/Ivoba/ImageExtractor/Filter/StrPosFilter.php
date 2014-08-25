@@ -1,9 +1,9 @@
 <?php
 
-namespace Ivoba\ImageParser\Filter;
+namespace Ivoba\ImageExtractor\Filter;
 
 
-use Ivoba\ImageParser\FilterInterface;
+use Ivoba\ImageExtractor\FilterInterface;
 
 class StrPosFilter implements FilterInterface
 {
@@ -21,7 +21,7 @@ class StrPosFilter implements FilterInterface
     public function filter(array $images)
     {
         foreach ($images as $index => $img) {
-            if ($this->findNeedle($img)) {
+            if ($this->findNeedle($img->getSrc())) {
                 unset($images[$index]);
             }
         }

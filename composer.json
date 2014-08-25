@@ -1,12 +1,13 @@
 {
-    "name": "ivoba/image-parser",
-    "description": "Image Parser",
+    "name": "ivoba/image-extractor",
+    "description": "Image Extractor",
     "keywords": [
         "parser",
+        "extractor",
         "scrapper",
         "image"
     ],
-    "homepage": "https://github.com/ivoba/image-parser",
+    "homepage": "https://github.com/ivoba/image-extractor",
     "license": "MIT",
     "authors": [
         {

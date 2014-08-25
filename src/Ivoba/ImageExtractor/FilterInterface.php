@@ -1,6 +1,6 @@
 <?php
 
-namespace Ivoba\ImageParser;
+namespace Ivoba\ImageExtractor;
 
 interface FilterInterface
 {
