@@ -1,8 +1,7 @@
 # Image Extractor
 
-*CAUTION: currently WIP*
-
 Extensible Image Extractor to find all Image tags in a string.
+The library uses the symfony DomCrawler as base of extraction.
 
 - You can add multiple Extractors to find img tags or video tags to f.e resolve youtube thumbs.
 - You can add own XPath expressions to ImageXPathExtractor.
@@ -10,6 +9,13 @@ Extensible Image Extractor to find all Image tags in a string.
 - You can add multiple Filter to filter the found Images.
 - You can define custom Filter.
 - You can resolve relative image pathes with a FixRelativePathFilter.
+
+As extractor a ImageXPathExtractor gets shipped, which fetches all img tags.
+
+These filters are provided:
+
+ - a StrPosFilter which filters images that contain one of the given filter strings.
+ - a FixRelativePathFilter that adds a basePath to all relative image paths.
 
 ## Install
 
@@ -31,8 +37,6 @@ $extractorList = [new ImageXPathExtractor()];
 $filter = [];
 $imageExtractor = new ImageExtractor($extractorList, $filter);
 $images = $imageExtractor->findImages(file_get_contents($file));
-$this->assertEquals($image, $images[0]->getSrc());
-
 ```
 
 
