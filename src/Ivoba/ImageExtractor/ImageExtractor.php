@@ -15,7 +15,7 @@ class ImageExtractor
      * @param array $extractor
      * @param array $filterList
      */
-    function __construct(array $extractorList, array $filterList)
+    function __construct(array $extractorList, array $filterList = [])
     {
         foreach ($extractorList as $extractor) {
             $this->addExtractor($extractor);
@@ -30,7 +30,7 @@ class ImageExtractor
      * @param $string
      * @return array
      */
-    public function findImages($string)
+    public function extract($string)
     {
         $images = [];
 

@@ -37,9 +37,9 @@ Via Composer
 
 ``` php
 $extractorList = [new ImageXPathExtractor()];
-$filter = [];
+$filter = [new StrPosFilter(['flattr-badge', 'feedburner.com']];
 $imageExtractor = new ImageExtractor($extractorList, $filter);
-$images = $imageExtractor->findImages(file_get_contents($file));
+$images = $imageExtractor->extract(file_get_contents($file));
 ```
 
 

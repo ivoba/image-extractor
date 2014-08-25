@@ -16,7 +16,7 @@ class ImageExtractorTest extends \PHPUnit_Framework_TestCase
         $extractorList = [new ImageXPathExtractor()];
         $filter = [];
         $imageExtractor = new ImageExtractor($extractorList, $filter);
-        $images = $imageExtractor->findImages(file_get_contents($file));
+        $images = $imageExtractor->extract(file_get_contents($file));
         $this->assertEquals($image, $images[0]->getSrc());
     }
 
@@ -24,7 +24,7 @@ class ImageExtractorTest extends \PHPUnit_Framework_TestCase
         $extractorList = [new ImageXPathExtractor()];
         $filter = [new FixRelativePathFilter('http://domain.com')];
         $imageExtractor = new ImageExtractor($extractorList, $filter);
-        $images = $imageExtractor->findImages(file_get_contents(__DIR__ . '/../Resources/relativePath.html'));
+        $images = $imageExtractor->extract(file_get_contents(__DIR__ . '/../Resources/relativePath.html'));
         $this->assertEquals('http://domain.com/image.jpg', $images[0]->getSrc());
         $this->assertEquals('http://externaldomain.com/image.jpg', $images[2]->getSrc());
     }
@@ -34,7 +34,7 @@ class ImageExtractorTest extends \PHPUnit_Framework_TestCase
         $filter = [new FixRelativePathFilter('http://domain.com'),
                    new StrPosFilter(['flattr-badge', 'feedburner.com'])];
         $imageExtractor = new ImageExtractor($extractorList, $filter);
-        $images = $imageExtractor->findImages(file_get_contents(__DIR__ . '/../Resources/relativePath.html'));
+        $images = $imageExtractor->extract(file_get_contents(__DIR__ . '/../Resources/relativePath.html'));
         $this->assertEquals('http://domain.com/image.jpg', $images[0]->getSrc());
         $this->assertEquals(2, count($images));
     }
