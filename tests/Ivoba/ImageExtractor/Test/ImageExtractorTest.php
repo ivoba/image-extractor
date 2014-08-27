@@ -39,6 +39,11 @@ class ImageExtractorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2, count($images));
     }
 
+    public function testCreate(){
+        $imageExtractor = ImageExtractor::create();
+        $this->assertInstanceOf('Ivoba\ImageExtractor\ImageExtractor', $imageExtractor);
+    }
+
     public function provideUrls()
     {
         return [

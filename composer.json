@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Ivoba": ["src", "tests"]
+            "Ivoba\\ImageExtractor": ["src", "tests"]
         }
     }
 }

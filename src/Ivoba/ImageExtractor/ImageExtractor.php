@@ -3,6 +3,7 @@
 namespace Ivoba\ImageExtractor;
 
 
+use Ivoba\ImageExtractor\Extractor\ImageXPathExtractor;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ImageExtractor
@@ -64,6 +65,16 @@ class ImageExtractor
     public function addFilter(FilterInterface $filter)
     {
         $this->filterList[] = $filter;
+    }
+
+    /**
+     * factory method to create default ImageExtractor
+     * @return ImageExtractor
+     */
+    public static function create()
+    {
+        return new self([new ImageXPathExtractor()],
+                                  $filter = []);
     }
 
 } 
