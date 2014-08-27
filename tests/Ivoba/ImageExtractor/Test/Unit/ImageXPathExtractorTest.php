@@ -9,7 +9,6 @@ class ImageXPathExtractorTest extends \PHPUnit_Framework_TestCase
     {
         $extractor = new \Ivoba\ImageExtractor\Extractor\ImageXPathExtractor();
         $crawler = $this->getMockBuilder('Symfony\Component\DomCrawler\Crawler')
-                        ->disableOriginalConstructor()
                         ->getMock();
         $crawler->expects($this->once())
                 ->method('filterXPath')
