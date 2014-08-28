@@ -10,11 +10,17 @@ class ImageXPathExtractor implements ExtractorInterface
 {
     private $xpath;
 
+    /**
+     * @param string $xpath
+     */
     function __construct($xpath = '//img')
     {
         $this->xpath = $xpath;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function extract(Crawler $crawler)
     {
         $images = [];

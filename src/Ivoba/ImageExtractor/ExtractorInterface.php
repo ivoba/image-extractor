@@ -10,7 +10,7 @@ interface ExtractorInterface
      * extract images via a DomCrawler object
      *
      * @param Crawler $crawler
-     * @return mixed
+     * @return array
      */
     public function extract(Crawler $crawler);
 } 
