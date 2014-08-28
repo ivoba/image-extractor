@@ -13,7 +13,7 @@ class ImageExtractor
     private $extractorList = [];
 
     /**
-     * @param array $extractor
+     * @param array $extractorList
      * @param array $filterList
      */
     function __construct(array $extractorList, array $filterList = [])

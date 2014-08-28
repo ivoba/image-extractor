@@ -44,7 +44,9 @@ $images = $imageExtractor->extract(file_get_contents($file));
 
 A factory method for the default ImageExtractor with a default ImageXPathExtractor is provided:
 
+``` php
     $imageCreator = ImageExtractor::create();
+```
 
 ## Testing
 
