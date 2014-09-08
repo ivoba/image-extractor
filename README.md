@@ -7,6 +7,7 @@ Extensible Image Extractor to find all Image tags in a string.
 The library uses the symfony DomCrawler as base of extraction.
 
 - You can add multiple Extractors to find img tags or video tags to f.e resolve youtube thumbs.
+  (or try the [Video Preview Image Extractor](https://github.com/ivoba/video-preview-image-extractor))
 - You can add own XPath expressions to ImageXPathExtractor.
 - You can define custom & additional Extractors.
 - You can add multiple Filter to filter the found Images.
